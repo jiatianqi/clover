@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Clover",
+    "version": "1.2.3",
+    "description": "True feelings are like vast grasslands",
+    "icons": {
+        "16": "img/icon.png",
+        "48": "img/icon.png",
+        "128": "img/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["js/inject.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "content_security_policy": "style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-eval'; object-src 'self' ;",
+    "permissions": ["contextMenus", "tabs", "notifications", "storage", "http://*/*", "https://*/*"],
+    "omnibox": {"keyword": "clover"},
+    "background": {
+        "scripts": ["js/eventPage.js"]
+    }
+}
